@@ -1,0 +1,71 @@
+.hire-btn {
+    background: linear-gradient(45deg, rgb(235, 107, 82), rgb(255, 42, 0));
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 15px rgba(255, 42, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    width: auto;
+    cursor: pointer;
+}
+
+.hire-btn span {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.hire-btn-arrow {
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+}
+
+.hire-btn:hover .hire-btn-arrow {
+    transform: translateX(3px);
+}
+
+.hire-btn:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 5px rgba(255, 42, 0, 0.7);
+}
+
+/* Ripple effect animation */
+.hire-btn::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%);
+    transform-origin: 50% 50%;
+}
+
+.hire-btn:focus:not(:active)::after {
+    animation: ripple 0.6s ease-out;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0, 0);
+        opacity: 1;
+    }
+    20% {
+        transform: scale(25, 25);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(40, 40);
+        opacity: 0;
+    }
+}

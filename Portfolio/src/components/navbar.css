@@ -1,0 +1,182 @@
+/* Navbar brand styling */
+.navbar{
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    
+
+     border-radius: 50px 50px 50px 50px !important;
+   
+    
+}
+
+.navbar-brand {
+    font-weight: 700 !important;
+    letter-spacing: 2px;
+}
+
+.nav-link {
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+    color: #ffffff !important;
+}
+
+.nav-link:hover {
+    color: rgb(255, 42, 0)       !important;
+}
+
+/* Active state styling for desktop */
+.nav-link.active {
+    color: rgb(255, 42, 0)       !important;
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 2px;
+   
+    border-radius: 1px;
+}
+
+/* Mobile menu overlay */
+.navbar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1040;
+    transition: opacity 0.3s ease;
+}
+
+/* Mobile menu sliding from right */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    max-width: 80vw;
+    height: 100vh;
+    background-color: #222429;
+    z-index: 1050;
+    transition: right 0.3s ease-in-out;
+    padding: 1.5rem;
+    box-shadow: -2px 0 15px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
+   border-radius:25px 0 0 25px  !important;
+}
+
+.mobile-menu-open {
+    right: 0 !important;
+}
+
+/* Mobile menu header */
+.mobile-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #ffffff;
+}
+
+/* Mobile menu navigation items */
+.mobile-menu .navbar-nav {
+    flex-direction: column;
+    width: 100%;
+}
+
+.mobile-menu .nav-item {
+    margin-bottom: 0.5rem;
+    width: 100%;
+}
+
+.mobile-menu .nav-link {
+    color: #ffffff !important;
+    padding: 1rem 0.5rem;
+    font-size: 1.1rem;
+    border-bottom: 1px solid #ffffff;
+    transition: all 0.3s ease;
+    position: relative;
+    display: block;
+    width: 100%;
+    text-decoration: none;
+}
+
+.mobile-menu .nav-link:hover {
+    color: rgb(255, 42, 0)  !important;
+    padding-left: 1.5rem;
+}
+
+/* Active state styling for mobile menu */
+.mobile-menu .nav-link.active {
+    color: rgb(255, 42, 0)   !important;
+    background-color: rgba(0, 123, 255, 0.15);
+    border-left: 4px solid rgb(255, 42, 0)  !important;
+    padding-left: 1.5rem;
+    font-weight: 600;
+}
+
+.mobile-menu .nav-link.active::after {
+    display: none;
+}
+
+/* Custom close button styling */
+.btn-close {
+    font-size: 1.2rem;
+    padding: 0.5rem;
+}
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Ensure navbar toggler is visible on mobile */
+.navbar-toggler {
+    border: none;
+    padding: 0.25rem 0.5rem;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+/* Mobile specific adjustments */
+@media (max-width: 991.98px) {
+    .navbar-brand {
+        font-size: 1.5rem !important;
+    }
+    
+    .mobile-menu {
+        display: block;
+    }
+    
+
+}
+
+/* Desktop specific adjustments */
+@media (min-width: 992px) {
+    .mobile-menu {
+        display: none !important;
+    }
+    
+    .navbar-overlay {
+        display: none !important;
+    }
+    
+    .navbar-toggler {
+        display: none !important;
+    }
+}
+
+/* Prevent body scroll when mobile menu is open */
+body.mobile-menu-open {
+    overflow: hidden;
+}

@@ -1,0 +1,44 @@
+.globe-container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: #000;
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.globe-responsive {
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+/* Mobile - very small screens */
+@media (max-width: 480px) {
+  .globe-responsive {
+    transform: scale(0.5);
+  }
+}
+
+/* Mobile - small screens */
+@media (min-width: 481px) and (max-width: 768px) {
+  .globe-responsive {
+    transform: scale(0.7);
+  }
+}
+
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .globe-responsive {
+    transform: scale(0.85);
+  }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+  .globe-responsive {
+    transform: scale(1);
+  }
+}

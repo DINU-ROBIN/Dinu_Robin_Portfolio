@@ -1,0 +1,286 @@
+/* Footer Main Styling */
+.footer {
+    background-color: #212529 !important;
+    color: #ffffff;
+    padding: 0;
+    margin-top: auto;
+}
+
+/* Footer Top Section */
+.footer-top {
+    padding: 3rem 0 2rem 0;
+    background: linear-gradient(135deg, #212529 0%, #343a40 100%);
+}
+
+.footer-heading {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0;
+}
+
+.hire-btn {
+    background: linear-gradient(45deg, rgb(235, 107, 82), rgb(255, 42, 0));
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 15px rgb(255, 42, 0);
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    width: auto;
+}
+
+.hire-btn span {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.hire-btn-arrow {
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+}
+
+.hire-btn:hover .hire-btn-arrow {
+    transform: translateX(3px);
+}
+
+.hire-btn:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 5px rgba(255, 42, 0, 0.7);
+}
+/* Ripple effect animation */
+.hire-btn::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%);
+    transform-origin: 50% 50%;
+}
+
+.hire-btn:focus:not(:active)::after {
+    animation: ripple 0.6s ease-out;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0, 0);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(20, 20);
+        opacity: 0;
+    }
+}
+
+.hire-btn i {
+    transition: transform 0.3s ease;
+}
+
+.hire-btn:active i {
+    transform: translateX(3px);
+}
+
+/* Divider Line */
+.footer-divider {
+    padding: 0;
+}
+
+.divider-line {
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #495057, transparent);
+    margin: 0;
+}
+.gray-text {
+    color: #bebebe; /* Standard gray color */
+    /* Alternatively, you could use: */
+    /* color: gray; */
+    /* Or any other gray shade you prefer like #999, #666, etc. */
+}
+/* Footer Main Content */
+.footer-main {
+    padding: 3rem 0;
+}
+
+.footer-section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: rgb(255, 42, 0);
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.footer-section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background-color: rgb(255, 42, 0);
+    border-radius: 1px;
+}
+
+.footer-description {
+    color: #adb5bd;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* Navigation List */
+.footer-nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-nav-list li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-nav-link {
+    color: #adb5bd;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    position: relative;
+    padding-left: 20px;
+}
+
+
+
+.footer-nav-link:hover {
+    color: rgb(255, 42, 0);
+    padding-left: 25px;
+}
+
+.footer-nav-link:hover::before {
+    transform: translateX(3px);
+}
+
+/* Contact Information */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.contact-icon {
+    font-size: 1.2rem;
+    color: #007bff;
+    width: 20px;
+    text-align: center;
+}
+
+.contact-link {
+    color: #adb5bd;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+
+
+/* Footer Bottom */
+.footer-bottom {
+    padding: 1.5rem 0;
+    background-color: #1a1e21;
+    border-top: 1px solid #495057;
+}
+
+.copyright-text {
+    color: #6c757d;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #495057;
+    color: #ffffff;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-heading {
+        font-size: 2rem;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    
+    .hire-btn {
+        width: 100%;
+        margin-top: 1rem;
+    }
+    
+    .footer-top {
+        text-align: center;
+    }
+    
+    .social-links {
+        justify-content: center;
+        margin-top: 1rem;
+    }
+    
+    .footer-bottom {
+        text-align: center;
+    }
+    
+    .copyright-text {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-heading {
+        font-size: 1.75rem;
+    }
+    
+    .footer-main {
+        padding: 2rem 0;
+    }
+    
+    .contact-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+}
+
+
