@@ -108,7 +108,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',  # <--- THIS IS REQUIRED!
         'NAME': 'portfoliodatabase_gmhx',           # your database name
         'USER': 'robin',                            # your database user
-        'PASSWORD': '210703',                       # your database password
+        'PASSWORD': 'Xx9vUP4e7gwpuqX4PqmfrsmFgza4dmXw',                       # your database password
         'HOST': 'dpg-d1ehlr6uk2gs73ao1os0-a.oregon-postgres.render.com',  # your database host
         'PORT': '5432',   
          'OPTIONS': {
