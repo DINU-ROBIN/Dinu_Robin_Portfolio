@@ -85,6 +85,7 @@ const ContactMe = () => {
       );
 
       if (response.ok) {
+        const data = await response.json();
         setShowModal(true);
         setFormData({
           name: "",
@@ -94,7 +95,13 @@ const ContactMe = () => {
           project_description: "",
         });
       } else {
-        const errorData = await response.json();
+        // Try to parse error as JSON, but fallback to text if not JSON
+        let errorData;
+        try {
+          errorData = await response.json();
+        } catch {
+          errorData = await response.text();
+        }
         setErrors(errorData);
       }
     } catch (error) {
