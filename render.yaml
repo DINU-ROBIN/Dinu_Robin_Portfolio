@@ -8,7 +8,7 @@ services:
       - key: DJANGO_SETTINGS_MODULE
         value: core.settings
       - key: DATABASE_URL
-        value: postgresql://robin:210703@<host>:5432/portfoliodatabase
+        value: postgresql://robin:Xx9vUP4e7gwpuqX4PqmfrsmFgza4dmXw@dpg-d1ehlr6uk2gs73ao1os0-a.oregon-postgres.render.com/portfoliodatabase_gmhx
       - key: SECRET_KEY
         value: django-insecure-+3^h@rrts_-eu5)2ip0_y#f)i#fy_ygy8$c!p=o=-r3*)9gu_h
       - key: DEBUG
