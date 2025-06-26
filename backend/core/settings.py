@@ -34,7 +34,7 @@ ALLOWED_HOSTS = ['.onrender.com', 'localhost']
 
 
 CORS_ALLOWED_ORIGINS = [
-    "https://dinu-robin-frontend.onrender.com/",
+    "https://dinu-robin-frontend.onrender.com",
     "http://localhost:5173",
     "http://127.0.0.1:3000",
      "http://localhost:3000",
@@ -55,7 +55,7 @@ CORS_ALLOW_HEADERS = [
     'x-requested-with',
 ]
 MIDDLEWARE = [
-     'corsheaders.middleware.CorsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -168,7 +168,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3000",
 ]
 
-CORS_ALLOW_ALL_ORIGINS = True  # Only for development
+CORS_ALLOW_ALL_ORIGINS = False
 
 # Media files
 
