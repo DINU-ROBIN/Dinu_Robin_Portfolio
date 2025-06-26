@@ -1,5 +1,7 @@
 import os
 import socket
+import dj_database_url
+
 """
 Django settings for core project.
 
@@ -88,14 +90,9 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'portfoliodatabase',         # your database name
-        'USER': 'postgres',            # your PostgreSQL username
-        'PASSWORD': '210703',    # your PostgreSQL password
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
+    'default': dj_database_url.config(
+        default=os.environ.get('DATABASE_URL')
+    )
 }
 
 
