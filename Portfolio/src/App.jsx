@@ -12,6 +12,7 @@ import { ScrollProgress } from "@/components/magicui/scroll-progress";
 import React from 'react';
 import PortfolioGrid from './components/PortfolioGrid';
 import './index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import ScrollableText from './components/scrollsbletexr';
 import ContactMe from './components/ContactMe';
