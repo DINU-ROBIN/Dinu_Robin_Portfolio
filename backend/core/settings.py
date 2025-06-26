@@ -88,6 +88,7 @@ TEMPLATES = [
         'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
+            'sslmode': 'require',
             'context_processors': [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
@@ -109,7 +110,10 @@ DATABASES = {
         'USER': 'robin',                            # your database user
         'PASSWORD': '210703',                       # your database password
         'HOST': 'dpg-d1ehlr6uk2gs73ao1os0-a.oregon-postgres.render.com',  # your database host
-        'PORT': '5432',                             # default PostgreSQL port
+        'PORT': '5432',   
+         'OPTIONS': {
+            'sslmode': 'require',
+        },# default PostgreSQL port
     }
 }
 
