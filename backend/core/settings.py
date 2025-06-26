@@ -1,23 +1,27 @@
 import os
 import socket
 import dj_database_url
-# import django
+import django
 
 
-# os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'core.settings')  # adjust if your settings module is different
-# django.setup()
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'core.settings')  # adjust if your settings module is different
 
-# from django.contrib.auth import get_user_model
+try:
+    django.setup()
+except Exception as e:
+    print('Django setup failed:', e)
 
-# User = get_user_model()
-# username = "robin"
-# password = "210703"
+from django.contrib.auth import get_user_model
 
-# if not User.objects.filter(username=username).exists():
-#     User.objects.create_superuser(username=username, password=password)
-#     print("Superuser created!")
-# else:
-#     print("Superuser already exists!")
+User = get_user_model()
+username = "robin"
+password = "210703"
+
+if not User.objects.filter(username=username).exists():
+    User.objects.create_superuser(username=username, password=password)
+    print("Superuser 'robin' created!")
+else:
+    print("Superuser 'robin' already exists.")
     
     
     
