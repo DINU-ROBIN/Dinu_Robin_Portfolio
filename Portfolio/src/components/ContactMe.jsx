@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { AnimatedGridPattern } from "@/components/magicui/animated-grid-pattern";
+
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 const ContactMe = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -71,7 +74,7 @@ const ContactMe = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:8000/api/contact/submit/",
+        `${API_BASE_URL}/api/contact/submit/`,
         {
           method: "POST",
           headers: {

@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://localhost:8000'; // Adjust to your Django server URL
+const API_BASE_URL = 'https://dinu-robin-6742.onrender.com'; // Adjust to your Django server URL
 
 export const downloadResume = async () => {
     try {
