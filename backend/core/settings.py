@@ -59,9 +59,9 @@ ALLOWED_HOSTS = ['.onrender.com', 'localhost']
 
 CORS_ALLOWED_ORIGINS = [
     "https://dinu-robin-frontend.onrender.com",
-    # "http://localhost:5173",
-    # "http://127.0.0.1:3000",
-    #  "http://localhost:3000",
+    "http://localhost:5173",
+    "http://127.0.0.1:3000",
+    "http://localhost:3000"
     # f"http://{socket.gethostbyname(socket.gethostname())}:3000",  # Your local IP
     # f"http://{socket.gethostbyname(socket.gethostname())}:5173",  # Your local IP for Vite
 ]
