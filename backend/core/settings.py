@@ -105,10 +105,10 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'portfoliodatabase_gmhx',
-        'USER': 'robin',
-        'PASSWORD': 'Xx9vUP4e7gwpuqX4PqmfrsmFgza4dmXw',
-        'HOST': 'dpg-d1ehlr6uk2gs73ao1os0-a',  # e.g., 'localhost' or the Render-provided host
+        'NAME': 'portfoliodatabase_gmhx',  # your DB name
+        'USER': 'robin',                   # your DB user
+        'PASSWORD': '210703',              # your DB password
+        'HOST': 'dpg-d1ehlr6uk2gs73ao1os0-a.oregon-postgres.render.com',  # your DB host
         'PORT': '5432',
     }
 }
