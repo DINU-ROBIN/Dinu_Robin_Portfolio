@@ -25,20 +25,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-+3^h@rrts_-eu5)2ip0_y#f)i#fy_ygy8$c!p=o=-r3*)9gu_h'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
-     'localhost',
-    '127.0.0.1',
-    '0.0.0.0',
-    socket.gethostbyname(socket.gethostname()),  # Get local IP automatically
-    '*',  # Allow all hosts (only for development)
+    '.onrender.com', 'localhost', '127.0.0.1' 
 ]
 
 
-# Application definition
 
-# ...existing code...
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
@@ -142,6 +136,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
