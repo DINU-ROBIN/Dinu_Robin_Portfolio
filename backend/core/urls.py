@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path, include, re_path
 from django.conf import settings
 from django.conf.urls.static import static
+from django.views.static import serve
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,10 +27,9 @@ urlpatterns = [
       path('api/resume/', include('resume.urls')),
       path('api/contact/', include('contact.urls')),
 ]
-if not settings.DEBUG:
-    urlpatterns += [
-        re_path(r'^(?!api/|admin/|static/|media/).*$', 
-            static_serve, 
-            {'path': 'index.html', 'document_root': os.path.join(settings.BASE_DIR, 'Portfolio', 'dist')}
-        ),
-    ]
+urlpatterns += [
+    re_path(r'^(?!api/|admin/|static/|media/).*$', serve, {
+        'path': 'index.html',
+        'document_root': 'Portfolio/dist',  # adjust as needed
+    }),
+]
