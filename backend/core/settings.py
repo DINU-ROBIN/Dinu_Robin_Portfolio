@@ -79,9 +79,14 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 DATABASES = {
-    'default': dj_database_url.config(
-        default=os.environ.get('DATABASE_URL')
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'portfolio_database',
+        'USER': 'robinr',
+        'PASSWORD': 'Xx9vUP4e7gwpuqX4PqmfrsmFgza4dmXw',
+        'HOST': 'dpg-d1ehlr6uk2gs73ao1os0-a',  # e.g., 'localhost' or the Render-provided host
+        'PORT': '5432',
+    }
 }
 
 
