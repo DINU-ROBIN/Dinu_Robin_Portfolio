@@ -148,7 +148,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'portfolio',  
-    'posts',      
+       
     'resume',
     'contact', 
 ]
