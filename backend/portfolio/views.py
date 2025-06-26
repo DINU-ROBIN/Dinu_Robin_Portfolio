@@ -3,7 +3,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .models import Portfolio
 from .serializers import PortfolioSerializer
-
+from django.http import HttpResponse
 class PortfolioListCreateView(generics.ListCreateAPIView):
     queryset = Portfolio.objects.all()
     serializer_class = PortfolioSerializer
@@ -26,3 +26,6 @@ def test_media(request):
             'image_url': f"http://127.0.0.1:8000{p.image.url}" if p.image else None,
         })
     return Response(data)
+
+def home(request):
+    return HttpResponse("Portfolio Home")
