@@ -82,7 +82,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'portfolio_database',
-        'USER': 'robinr',
+        'USER': 'robin',
         'PASSWORD': 'Xx9vUP4e7gwpuqX4PqmfrsmFgza4dmXw',
         'HOST': 'dpg-d1ehlr6uk2gs73ao1os0-a',  # e.g., 'localhost' or the Render-provided host
         'PORT': '5432',
