@@ -26,5 +26,10 @@ urlpatterns = [
       path('api/resume/', include('resume.urls')),
       path('api/contact/', include('contact.urls')),
 ]
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+if not settings.DEBUG:
+    urlpatterns += [
+        re_path(r'^(?!api/|admin/|static/|media/).*$', 
+            static_serve, 
+            {'path': 'index.html', 'document_root': os.path.join(settings.BASE_DIR, 'Portfolio', 'dist')}
+        ),
+    ]

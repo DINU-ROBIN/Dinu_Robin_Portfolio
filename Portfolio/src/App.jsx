@@ -35,6 +35,12 @@ function App() {
     return () => mediaQuery.removeEventListener('change', handleMediaChange);
   }, []);
 
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_API_URL}/resume/`)
+      .then(res => res.json())
+      .then(data => console.log(data));
+  }, []);
+
   return (
     <>
     <ScrollProgress />

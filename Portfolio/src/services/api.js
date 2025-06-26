@@ -17,4 +17,11 @@ export const portfolioAPI = {
     delete: (id) => api.delete(`/api/portfolio/${id}/`),
 };
 
+const apiUrl = import.meta.env.VITE_API_URL;
+
+export async function fetchData() {
+  const response = await fetch(`${apiUrl}/resume/`);
+  return response.json();
+}
+
 export default api;
