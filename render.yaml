@@ -8,4 +8,8 @@ services:
       - key: DJANGO_SETTINGS_MODULE
         value: core.settings
       - key: DATABASE_URL
-        sync: false
+        value: postgresql://robin:210703@<host>:5432/portfoliodatabase
+      - key: SECRET_KEY
+        value: django-insecure-+3^h@rrts_-eu5)2ip0_y#f)i#fy_ygy8$c!p=o=-r3*)9gu_h
+      - key: DEBUG
+        value: "False"
