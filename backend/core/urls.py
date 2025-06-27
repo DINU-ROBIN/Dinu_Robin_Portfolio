@@ -35,3 +35,5 @@ urlpatterns += [
         'document_root': 'Portfolio/dist',  # adjust as needed
     }),
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
