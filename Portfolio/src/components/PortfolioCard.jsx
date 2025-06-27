@@ -11,11 +11,7 @@ const PortfolioCard = ({ portfolio }) => {
             {/* Image container (top center) */}
             <div className="w-full flex items-center justify-center bg-[#ffffff]/10  pt-4 pb-2 relative">
                 <div className="absolute inset-0 bg-[rgb(255,42,0)]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
-                <img
-                    src={portfolio.image_url || portfolio.image || defaultImage}
-                    alt={portfolio.title}
-                    className="w-full max-w-xs sm:max-w-sm h-auto max-h-[180px] object-contain filter brightness-90 group-hover:brightness-110 transition-all duration-300 z-10"
-                />
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAO8AAAA2CAYAAAAvQc5eAAAABmJLR0QA/wD/AP+gvaeTAAAYI0lEQVR42u2dB3wURRfAQ7EA8iEdBJHQMRgpCtIEQieChCMgShOkCSJNEsEPaVKlh16lE0MXREDpUQTlUKmClJCEFDZ3uUsv8725e3uZG7bd5YL5dN/v936QndnZ3dn578y8efPO681tUULrrVGC3+Zood2maKHDhmihE2iXtTHCW6tjhG6rYoTuK2IEQ0iM0HNpjNBrSYzwzqIY4d0FscJ7X8be6T8/1jhwbtzOwV/EfjxsRmxNL1100eXJSIsdUQQAJq23RBEAmADABAAmndZFky5rH5K3Vj8k3VY+JN1XPCQ9QmIIAEx6LY4h7yyKJQAw6Ts/lvSfG0sGzokjg2bFkQ9mxp0CiLvoNauLLnkszXZGESeAv+IAXsMAvDyG9FjGALyQA3i2A2AydHrcsQ9mmLz1GtZFlzySpqGRpDkA3HJ7FGkFALcBgNsCwO03RpOOAHDndQ+JPwDcddVD8jYAHAAAGwDgwCUxpDcA3AcAhuEz6TcvlgwAgN8HgAd/EUeGAMDDpseZRkyL89drWRdd8kCafB1JnADeSgGOzgF4PQfwCg7gRRzAcxiAZ9gAzhwxLX6AXtO66OJheX13JLEBvCuKNN/BALyZA3gtB3AIB/ACDuBZDMDT4rOGTXnUXq9tXXTxoLy2J5I0DoskbwDAzXYx89+tnAFrPWPAWsUZsJZQA1ZMzvx3npMBiwwFgIdPi48ZPjm+kl7juujiIWm4L5I4AA7lAPacBZoasCjAx/Ua10UXD0n9/Q9Iw70cwHlngYYhtD581kUXj8irBx6QBgBwIwDYNv8N4wxYubFAz5eyQMeG67Wuiy4ekFe+eUBsAO9jAM5jC/SQ6XGt9JrXRZdcis+hB8QJ4D0MwHlngV6l17wuuuRSXv42gtQDgH0PPiD1AeCGALAm
             </div>
 
             {/* Content (bottom) */}
