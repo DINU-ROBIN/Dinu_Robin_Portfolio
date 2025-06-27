@@ -8,9 +8,12 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.response import Response
+
 class PortfolioListCreateView(APIView):
     def get(self, request):
-        return Response([])
+        portfolios = Portfolio.objects.all()
+        serializer = PortfolioSerializer(portfolios, many=True, context={'request': request})
+        return Response(serializer.data)
 
 class PortfolioDetailView(APIView):
     def get(self, request, pk):
