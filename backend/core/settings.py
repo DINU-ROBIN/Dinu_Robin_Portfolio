@@ -209,14 +209,14 @@ REST_FRAMEWORK = {
 
 # Add this at the very end of settings.py
 
-import django
-from django.contrib.auth import get_user_model
+# import django
+# from django.contrib.auth import get_user_model
 
-django.setup()
-User = get_user_model()
-username = "robin"
-password = "210703"
-email = "dinurobin21@gmail.com"
+# django.setup()
+# User = get_user_model()
+# username = "robin"
+# password = "210703"
+# email = "dinurobin21@gmail.com"
 
-if not User.objects.filter(username=username).exists():
-    User.objects.create_superuser(username=username, email=email, password=password)
+# if not User.objects.filter(username=username).exists():
+#     User.objects.create_superuser(username=username, email=email, password=password)
