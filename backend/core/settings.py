@@ -202,3 +202,21 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.AllowAny',
     ]
 }
+
+
+
+
+
+# Add this at the very end of settings.py
+
+import django
+from django.contrib.auth import get_user_model
+
+django.setup()
+User = get_user_model()
+username = "your_admin_username"
+password = "your_admin_password"
+email = "your_email@example.com"
+
+if not User.objects.filter(username=username).exists():
+    User.objects.create_superuser(username=username, email=email, password=password)
