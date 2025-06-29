@@ -25,9 +25,9 @@ urlpatterns = [
     #   path('', views.home, name='home'),
     path('admin/', admin.site.urls),
     # path('api/', include('core.api.urls')), 
-      path('', include('portfolio.urls')),
-      path('api/resume/', include('resume.urls')),
-      path('api/contact/', include('contact.urls')),
+    path('api/', include('portfolio.urls')),
+    path('api/resume/', include('resume.urls')),
+    path('api/contact/', include('contact.urls')),
 ]
 urlpatterns += [
     re_path(r'^(?!api/|admin/|static/|media/).*$', serve, {

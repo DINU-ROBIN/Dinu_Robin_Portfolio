@@ -12,6 +12,7 @@ const PortfolioGrid = () => {
         try {
             setLoading(true);
             const response = await portfolioAPI.getAll();
+            console.log('Portfolio API response:', response);
             setPortfolioItems(response.data);
             setError(null);
         } catch (err) {

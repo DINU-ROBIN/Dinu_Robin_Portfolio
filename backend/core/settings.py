@@ -51,7 +51,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-+3^h@rrts_-eu5)2ip0_y#f)i#fy_ygy8$c!p=o=-r3*)9gu_h'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['.onrender.com', 'localhost']
 # ALLOWED_HOSTS = ['*']
@@ -61,7 +61,10 @@ CORS_ALLOWED_ORIGINS = [
     "https://dinu-robin-frontend.onrender.com",
     "http://localhost:5173",
     "http://127.0.0.1:3000",
-    "http://localhost:3000"
+    "http://localhost:3000",
+    "http://localhost:5174",
+    "http://127.0.0.1:5173",
+    "http://127.0.0.1:5174"
     # f"http://{socket.gethostbyname(socket.gethostname())}:3000",  # Your local IP
     # f"http://{socket.gethostbyname(socket.gethostname())}:5173",  # Your local IP for Vite
 ]
@@ -158,7 +161,9 @@ STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STORAGES = {
-    # ...
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
     "staticfiles": {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
@@ -248,3 +253,15 @@ REST_FRAMEWORK = {
 #         },
 #     },
 # }
+
+# Add these additional CORS settings
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_METHODS = [
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+]
+

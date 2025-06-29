@@ -12,6 +12,7 @@ from rest_framework.response import Response
 class PortfolioListCreateView(APIView):
     def get(self, request):
         portfolios = Portfolio.objects.all()
+        print(f"Found {portfolios.count()} portfolio items")  # Debug print
         serializer = PortfolioSerializer(portfolios, many=True, context={'request': request})
         return Response(serializer.data)
 
@@ -22,6 +23,16 @@ class PortfolioDetailView(APIView):
 @api_view(['GET'])
 def test_media(request):
     return HttpResponse("Test Media")
+
+@api_view(['GET'])
+def test_api(request):
+    """Test endpoint to check if API is working"""
+    return Response({
+        'message': 'API is working!',
+        'portfolio_count': Portfolio.objects.count(),
+        'sample_portfolios': list(Portfolio.objects.values('id', 'title')[:5])
+    })
+
 # def test_media(request):
 #     """Test endpoint to check media files"""
 #     portfolios = Portfolio.objects.all()
