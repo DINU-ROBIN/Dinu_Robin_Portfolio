@@ -11,7 +11,7 @@ Class-based views
     1. Add an import:  from other_app.views import Home
     2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
 Including another URLconf
-    1. Import the include() function: from django.urls import include, path
+    1. Import the include() function: from my_app import views
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
@@ -28,12 +28,6 @@ urlpatterns = [
     path('api/', include('portfolio.urls')),
     path('api/resume/', include('resume.urls')),
     path('api/contact/', include('contact.urls')),
-]
-urlpatterns += [
-    re_path(r'^(?!api/|admin/|static/|media/).*$', serve, {
-        'path': 'index.html',
-        'document_root': 'Portfolio/dist',  # adjust as needed
-    }),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
