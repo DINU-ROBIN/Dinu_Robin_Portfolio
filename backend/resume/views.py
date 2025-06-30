@@ -32,7 +32,7 @@ class ResumeDownloadView(View):
                 else:
                     # Fallback: try to serve from a known location in MEDIA_ROOT
                     try:
-                        fallback_filename = 'DinuRobinResumefinal2025.pdf'  # Use the correct filename
+                        fallback_filename = '  DinuRobinResumeFINALjune2025.pdf'  # Use the correct filename
                         default_path = os.path.join(settings.MEDIA_ROOT, 'resumes', fallback_filename)
                         if os.path.exists(default_path):
                             with open(default_path, 'rb') as file:
