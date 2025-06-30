@@ -9,6 +9,7 @@ from django.views.decorators.csrf import csrf_exempt
 from .models import Resume
 import os
 import mimetypes
+import requests
 
 @method_decorator(csrf_exempt, name='dispatch')
 class ResumeDownloadView(View):
@@ -24,7 +25,31 @@ class ResumeDownloadView(View):
             file_path = resume.resume_file.path
             
             if not os.path.exists(file_path):
-                raise Http404("Resume file not found on server")
+                # If file doesn't exist locally, try to serve from URL
+                if resume.resume_file.url:
+                    # Redirect to the file URL if available
+                    from django.http import HttpResponseRedirect
+                    return HttpResponseRedirect(resume.resume_file.url)
+                else:
+                    # If no URL, try to serve from a known location
+                    # This is a fallback for when the file is in the database but not on disk
+                    try:
+                        # Try to serve from a default location
+                        default_path = os.path.join(os.path.dirname(__file__), '..', 'media', 'resumes', 'DinuRobinResumeFINALjune2025.pdf')
+                        if os.path.exists(default_path):
+                            with open(default_path, 'rb') as file:
+                                response = HttpResponse(
+                                    file.read(),
+                                    content_type='application/pdf'
+                                )
+                                response['Content-Disposition'] = 'attachment; filename="Dinu_Robin_Resume.pdf"'
+                                response['Access-Control-Allow-Origin'] = '*'
+                                return response
+                        else:
+                            raise Http404("Resume file not found on server")
+                    except Exception as e:
+                        print(f"Error serving default file: {str(e)}")
+                        raise Http404("Resume file not found on server")
             
             # Determine the content type
             content_type, _ = mimetypes.guess_type(file_path)
