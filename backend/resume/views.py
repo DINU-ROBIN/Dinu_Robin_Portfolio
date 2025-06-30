@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 # Create your views here.
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.shortcuts import get_object_or_404
 from django.views import View
 from django.utils.decorators import method_decorator
@@ -9,6 +9,7 @@ from django.views.decorators.csrf import csrf_exempt
 from .models import Resume
 import os
 import mimetypes
+from django.conf import settings
 # import requests
 
 @method_decorator(csrf_exempt, name='dispatch')
@@ -27,15 +28,12 @@ class ResumeDownloadView(View):
             if not os.path.exists(file_path):
                 # If file doesn't exist locally, try to serve from URL
                 if resume.resume_file.url:
-                    # Redirect to the file URL if available
-                    from django.http import HttpResponseRedirect
                     return HttpResponseRedirect(resume.resume_file.url)
                 else:
-                    # If no URL, try to serve from a known location
-                    # This is a fallback for when the file is in the database but not on disk
+                    # Fallback: try to serve from a known location in MEDIA_ROOT
                     try:
-                        # Try to serve from a default location
-                        default_path = os.path.join(os.path.dirname(__file__), '..', 'media', 'resumes', 'DinuRobinResumeFINALjune2025.pdf')
+                        fallback_filename = 'DinuRobinResumefinal2025.pdf'  # Use the correct filename
+                        default_path = os.path.join(settings.MEDIA_ROOT, 'resumes', fallback_filename)
                         if os.path.exists(default_path):
                             with open(default_path, 'rb') as file:
                                 response = HttpResponse(
@@ -54,7 +52,7 @@ class ResumeDownloadView(View):
             # Determine the content type
             content_type, _ = mimetypes.guess_type(file_path)
             if not content_type:
-                content_type = 'application/octet-stream'
+                content_type = 'application/pdf'
             
             # Get file extension for filename
             file_extension = os.path.splitext(resume.resume_file.name)[1]
