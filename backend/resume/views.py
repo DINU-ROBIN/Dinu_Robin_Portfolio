@@ -9,7 +9,7 @@ from django.views.decorators.csrf import csrf_exempt
 from .models import Resume
 import os
 import mimetypes
-import requests
+# import requests
 
 @method_decorator(csrf_exempt, name='dispatch')
 class ResumeDownloadView(View):
