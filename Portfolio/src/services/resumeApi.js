@@ -2,7 +2,8 @@ const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://dinu-robin-6742.on
 
 export const downloadResume = async () => {
     try {
-        const response = await fetch(`${API_BASE_URL}/api/resume/download/`, {
+        const url = API_BASE_URL.replace(/\/$/, '') + '/api/resume/download/';
+        const response = await fetch(url, {
             method: 'GET',
             headers: {
                 'Accept': 'application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document',
@@ -17,9 +18,9 @@ export const downloadResume = async () => {
         const blob = await response.blob();
         
         // Create download link
-        const url = window.URL.createObjectURL(blob);
+        const urlLink = window.URL.createObjectURL(blob);
         const link = document.createElement('a');
-        link.href = url;
+        link.href = urlLink;
         
         // Get filename from response headers or use default
         const contentDisposition = response.headers.get('Content-Disposition');
@@ -36,7 +37,7 @@ export const downloadResume = async () => {
         document.body.appendChild(link);
         link.click();
         link.remove();
-        window.URL.revokeObjectURL(url);
+        window.URL.revokeObjectURL(urlLink);
         
         return { success: true, message: 'Resume downloaded successfully' };
     } catch (error) {
