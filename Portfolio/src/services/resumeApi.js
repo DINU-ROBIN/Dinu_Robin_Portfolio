@@ -1,4 +1,4 @@
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000'; // Use environment variable
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://dinu-robin-6742.onrender.com'; // Use environment variable
 
 export const downloadResume = async () => {
     try {
